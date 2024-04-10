@@ -5,9 +5,9 @@
 //! ----------------------------------------------------------------------
 //! ------------------------VARIABILI GLOBALI-----------------------------
 //! ----------------------------------------------------------------------
-let primoNumero; // primo nuemro inserito
-let secondoNumero; // secondo numero inserito
-let operarore; // operatore
+let primoNumero = 0; // primo nuemro inserito
+let secondoNumero = 0; // secondo numero inserito
+let operarore = ""; // operatore
 //! ----------------------------------------------------------------------
 //! ------------------------VARIABILI GLOBALI-----------------------------
 //! ----------------------------------------------------------------------
@@ -20,9 +20,16 @@ let operarore; // operatore
 //? ----------------------------------------------------------------------
 //? ----------------------------MILESTONE 1-------------------------------
 //? ----------------------------------------------------------------------
+
+
+
 // prendo tutti i bottoni
-const btnNumElem = document.querySelectorAll(".num");
-const resultElem = document.getElementById("display");
+const btnNumElem = document.querySelectorAll(".num"); // oggetto bottoni numerici
+const resultElem = document.getElementById("display"); // oggetto monitor 
+const calculateBtn = document.getElementById("equals"); // oggetto calcola btn
+const reset = document.getElementById("reset"); // oggetto reset btn
+
+
 
 // itero sui bottoni
 for (let i = 0; i < btnNumElem.length; i++) {
@@ -115,11 +122,11 @@ function operatoriClick() {
 
     // faccio della console di display quando l'operatore viene cliccato
     resultElem.innerText = 0;
-    
+
     // console.log(operarore, primoNumero);
 }
 //? ----------------------------------------------------------------------
-//? ----------------------------------------------------------------------
+//? ---------------------------DESCRIZIONE 2------------------------------
 //? ----------------------------------------------------------------------
 // 1) prendo tutti i bottoni operatori
 // 2) itero sui bottoni cosi ottengo bottno singolo
@@ -129,11 +136,42 @@ function operatoriClick() {
 // 6) aasegno al primo numero nella variabili globali il valore dei numeri digitati prima dell'operatore con parsInt e con innerText
 // 7) eseguo il reset al click dgli operatori
 //? ----------------------------------------------------------------------
+//? ---------------------------DESCRIZIONE 2------------------------------
 //? ----------------------------------------------------------------------
+
+//? ----------------------------------------------------------------------
+//? ----------------------------MILESTONE 3-------------------------------
 //? ----------------------------------------------------------------------
 //* MILESTONE 3
 // aggiungere event listener al pulsante =
 // quando si clicca su =, salvare il secondo operando, effetuare il calcolo corretto in base all'operatore selezionato e visualizzare il risultato in alto
 //? ----------------------------------------------------------------------
+//? ----------------------------MILESTONE 3-------------------------------
 //? ----------------------------------------------------------------------
+
+calculateBtn.addEventListener("click", calculateClick)
+
+function calculateClick() {
+
+    secondoNumero = parseInt(resultElem.innerText);
+
+    // console.log(primoNumero, operarore, secondoNumero);
+
+    const result = calculate(primoNumero, operarore, secondoNumero);
+
+    resultElem.innerText = result;
+}
+//? ----------------------------------------------------------------------
+//? ---------------------------DESCRIZIONE 3------------------------------
+//? ----------------------------------------------------------------------
+// 1) aggiungiamo l'evento di ascolto del bottone di calcolo "=" e aggiungiamo una funzione
+// 2) //! funzione per calcolare
+// 3) passo il secondo numero come parsInt e lo estrapolo dal monitor dopo aver cliccato su un operatore
+// 4) creo una nuova costante per il risultato con una funzione
+            //! FUNZIONE PURA
+            // VAI NELL'ALTRO SCRIPT ---->
+            //!-----------------
+// 5) mando a schermo l'operazione
+//? ----------------------------------------------------------------------
+//? ---------------------------DESCRIZIONE 3------------------------------
 //? ----------------------------------------------------------------------
