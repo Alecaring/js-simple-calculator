@@ -27,7 +27,7 @@ let operarore = ""; // operatore
 const btnNumElem = document.querySelectorAll(".num"); // oggetto bottoni numerici
 const resultElem = document.getElementById("display"); // oggetto monitor 
 const calculateBtn = document.getElementById("equals"); // oggetto calcola btn
-const reset = document.getElementById("reset"); // oggetto reset btn
+const resetBtn = document.getElementById("reset"); // oggetto reset btn
 
 
 
@@ -155,11 +155,21 @@ function calculateClick() {
 
     secondoNumero = parseInt(resultElem.innerText);
 
+    // controllo che la divisione non sia per 0
+    if (operarore === "divisione" && secondoNumero === 0) {
+        resultElem.innerText = "ERRORE: DIV";
+
+        // altrimenti esegui il calcolo
+    } else if (operarore !== "") {
+
     // console.log(primoNumero, operarore, secondoNumero);
 
+    // NELLA COSTANTE RESULT METTO LA FUNZIONE PURA
     const result = calculate(primoNumero, operarore, secondoNumero);
 
+    // METTO A VIDEO IL RISULTATO
     resultElem.innerText = result;
+    }
 }
 //? ----------------------------------------------------------------------
 //? ---------------------------DESCRIZIONE 3------------------------------
@@ -175,3 +185,23 @@ function calculateClick() {
 //? ----------------------------------------------------------------------
 //? ---------------------------DESCRIZIONE 3------------------------------
 //? ----------------------------------------------------------------------
+
+//? ----------------------------------------------------------------------
+//? ----------------------------MILESTONE 4-------------------------------
+//? ----------------------------------------------------------------------
+// MILESTONE 4
+// pulsante canc: cliccando il pulsante si resetta il calcolo
+//? ----------------------------------------------------------------------
+//? ----------------------------MILESTONE 4-------------------------------
+//? ----------------------------------------------------------------------
+
+// creo l'evento di ascolto su bottone reset "C" per il bottone con funzione
+resetBtn.addEventListener("click", reset);
+
+// se premi su "C" imposta i valori elencati :
+function reset() {
+    primoNumero = 0;
+    operarore = "";
+    secondoNumero = 0;
+    resultElem.innerText = 0;
+}
